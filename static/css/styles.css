@@ -14,7 +14,7 @@
     background-color:var(--bright-green);
 }
 .bg-white{
- background-color: var(--white);   
+ background-color: var(--white) !important;   
 }
 .bg-pink{
     background-color: var(--pink);
