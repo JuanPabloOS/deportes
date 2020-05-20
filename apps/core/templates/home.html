@@ -1,10 +1,46 @@
-{% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-Home
-{% endblock %}
-
-{% block content %}
-<h1>Bienvenido</h1>
-<button>Aceptar</button>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+<body class="bg-white">
+    <div class="container-fluid" style="height:100% !important">
+        <div class="row bg-dark-blue mb-2 p-3" style="height:250px !important">
+            <div class="col-sm-12">
+                <a href="{% url 'login' %}" class="btn btn-primary btn-lg">
+                    Log in
+                </a>
+            </div>
+            <div class="col-sm-12 d-flex flex-row justify-content-between">
+                <h4 class="title align-self-end">Deportes UAQ-FIF</h1>
+                <img src="{% static 'img/logo_uaq.png' %}" alt="Imagen" style="width:100px">
+            </div>
+            
+        </div>
+        <div class="row justify-content-center p-3">
+            <h5>Revisa nuestra oferta</h5>
+        </div>
+        <div class="row row-cols-sm-1 row-cols-md-3 justify-content-around mt-3 p-3">
+            {% for team in teams %}
+            <div class="col-md-5 border mb-4">
+                <h4>{{ team.sport }}</h4>
+                <label for="">Horario:</label>
+                <span>{{ team.schedule }}</span>
+                <br>
+                <label for="">Profesor:</label>
+                <span>{{ team.teacher.get_full_name }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

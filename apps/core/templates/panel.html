@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid" style="height:100% !important">
+    
+    <div class="row row-cols-sm-1 row-cols-md-3 justify-content-around mt-3 p-3">
+        {% for team in teams %}
+        <div class="col-md-5 border mb-4 p-2">
+            <h4>{{ team.sport }}</h4>
+            <label for="">Horario:</label>
+            <span>{{ team.schedule }}</span>
+            <br>
+            <label for="">Profesor:</label>
+            <span>{{ team.teacher.get_full_name }}</span>
+            <br>
+            <a href="{% url 'team_details' team.pk %}" class="btn btn-outline-primary">Editar</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

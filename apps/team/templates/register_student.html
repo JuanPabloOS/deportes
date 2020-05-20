@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>Expediente</th>
+        <th>Nombre</th>
+        <th>Equipo</th>
+        
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td>{{ student.first_name }}</td>
+        <td>{{ student.last_name }}</td>
+        <td>{{ student.Team }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        {{ field.label_tag }}
+        {{ field }}
+        {{ field.errors }}
+    {% endfor %}
+    <input type="submit" value="Aceptar">
+</form>
+
+{% endblock %}
