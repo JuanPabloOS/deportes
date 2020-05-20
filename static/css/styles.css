@@ -1,0 +1,29 @@
+ 
+:root{
+    --dark-blue: #0A2342;
+    --bright-green: #2CA58D;
+    --sad-green: #84BC9C;
+    --white: #FFFDF7;
+    --pink: #F46197;
+}
+
+.bg-dark-blue{
+    background-color:var(--dark-blue) !important;
+}
+.bg-bright-green{
+    background-color:var(--bright-green);
+}
+.bg-white{
+ background-color: var(--white);   
+}
+.bg-pink{
+    background-color: var(--pink);
+}
+.color-white{
+    color: var(--white) !important;
+}
+.title{
+    font-size:3rem;
+    color: white;
+}
+    
