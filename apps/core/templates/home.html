@@ -6,35 +6,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Document</title>
 </head>
 
-<body class="bg-bright-green">
-    <div class="container-fluid bg-white">
-        {{ request.user }}
-    <a href="{% url 'login' %}">Login</a>
-    <h1>Bienvenido</h1>
-    <p>Consulta los talleres deportivos</p>
-    <table>
-        <tr>
-            <th>Deporte</th>
-            <th>Horario</th>
-            <th>Docente</th>
-        </tr>
-        {% for team in teams %}
-        <tr>
-            <td>{{ team.sport}}</td>
-            <td>{{ team.schedule}}</td>
-            <td>{{ team.teacher.get_full_name}}</td>
-        </tr>
-        {% endfor %}
-    </table>
+<body class="bg-white">
+    <div class="container-fluid bg-brigth-green">
+        <!-- Header -->
+        <div class="row bg-dark-blue d-flex flex-row justify-content-between">
+            <div class="col-12">
+
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>     
+            </div>
+            <div class="col-12 d-flex flex-row justify-content-between">
+                <h1 class="title align-self-end">Deportes FIF-UAQ</h1>
+                <img src="{% static 'img/logo.png' %}" alt="" styles="width:150px;">
+            </div>           
+        </div>
+        <!-- Contenido -->
+        <div class="row row-cols-sm-1 row-cols-md-2 justify-content-around mt-3">
+            {% for team in teams %}
+                <div class="col-sm-12 col-md-5 border mb-3">
+                    <h3>{{ team.sport}}</h3>
+                    <label for="">Horario</label>
+                    <span>{{ team.schedule}}</span>
+                    <label for="">Docente:</label>
+                    <span>{{ team.teacher.get_full_name}}</span>
+                </div>
+                    
+                {% endfor %}
+        </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
