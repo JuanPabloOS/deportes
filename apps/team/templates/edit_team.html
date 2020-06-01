@@ -2,27 +2,12 @@
 {% load static %}
 {% load widget_tweaks %}
 
+
 {% block content %}
 <div class="container-fluid">
-    <div class="row">
+    <div class="row justify-content-center">
         <!-- Alumnos -->
         <div class="col-sm-12 col-md-6">
-            <h4>{{ team }}</h4>
-            <table class="table">
-                <tr>
-                    <th>Expediente</th>
-                    <th>Nombre</th>
-                </tr>
-                {% for student in students %}
-                <tr>
-                    <th>{{ student.expediente }}</th>
-                    <th>{{ student.last_name }} {{ student.first_name }}</th>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
-        <div class="col-sm-12 col-md-6">
-            <h4>Registra un alumno</h4>
             {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -44,9 +29,10 @@
                 </div>
 
                 {% endfor %}
-                <input type="submit" value="Aceptar" class="btn btn-outline-primary btn-block mt-2">
+                <input type="submit" value="Guardar cambios" class="btn btn-outline-primary btn-block mt-2">
             </form>
         </div>
     </div>
 </div>
-{% endblock%}
+
+{% endblock %}

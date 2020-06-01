@@ -14,7 +14,7 @@
                 <label for="">Docente:</label>
                 <span>{{ team.teacher.get_full_name}}</span>
                 <br>
-                <button class="btn btn-outline-primary">Editar</button>
+                <a href="{% url 'edit_team' team.pk %}" class="btn btn-outline-primary">Editar</a>
                 <a href="{% url 'team_details' team.pk %}" class="btn btn-outline-primary">Registrar</a>
             </div>
             
