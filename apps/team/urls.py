@@ -1,7 +1,10 @@
 from django.urls import path
 from . import views
 urlpatterns = [
-    path('team_details/<int:id_equipo>/', views.team_details_view, name="team_details"),
-    path('register/team/', views.register_team, name="register_team"),
-    path('register/student/', views.register_student, name="register_student"),
+    path('equipos/', views.equipos, name="equipos"),
+    path('estudiantes/', views.estudiantes, name="estudiantes"),
+    path('estudiantes/plan/<str:plan>/', views.estudiantes_plan, name="estudiantesByPlan"),
+    path('estudiantes/equipo/<int:id_equipo>/', views.estudiantes_equipo, name="estudiantesByTeam"),
+    path('team_details/<int:Team_id>/', views.team_details, name="team_details"),
+    path('edit_team/<int:Team_id>/', views.edit_team, name="edit_team"),
 ]
