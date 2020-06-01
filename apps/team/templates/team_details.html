@@ -8,6 +8,14 @@
         <!-- Alumnos -->
         <div class="col-sm-12 col-md-6">
             <h4>{{ team }}</h4>
+            <span>
+                Cupo: 
+                {% if team.max_students is not None %}
+                     {{team.max_students}}
+                {% else %}
+                    Ilimitado
+                {% endif %}
+            </span>
             <table class="table">
                 <tr>
                     <th>Expediente</th>

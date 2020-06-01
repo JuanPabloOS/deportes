@@ -19,12 +19,23 @@ Perfil
                     {% endfor %}
             </ul>
             {% endif %}
-            <form action="" method="post">
+            <form action="{% url 'complete_profile' %}" method="post" enctype="multipart/form-data" >
                 {% csrf_token %}
                 {% for field in form %}
-                {{ field.label_tag }}
-                {{ field|add_class:"form-control" }}
-                {{ field.errors }}
+                    {% if field.html_name != 'avatar' %}
+                        <div class="form group">
+                            {{ field.label_tag }}
+                            {{ field|add_class:"form-control" }}
+                            {{ field.errors }}
+                        </div>
+                    {% else %}
+
+                        <div class="custom-file mt-3">
+                            {{ field|add_class:"custom-file-input" }}
+                            <label class="custom-file-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
 
                 {% endfor %}
                 <input type="submit" value="Guardar cambios" class="btn btn-outline-primary btn-block mt-2">

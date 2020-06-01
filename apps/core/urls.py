@@ -8,4 +8,9 @@ urlpatterns = [
     path('profile/', views.profile_view, name="profile"),
     path('changePassword/', views.changePassword_view, name="changePassword"),
     path('profile/', views.profile_view, name="profile"),
+    path('complete_profile/', views.complete_profile, name='complete_profile'),
+    path('profile/', views.profile_view, name='profile'),
+    path('update_password/', views.update_password, name='update_password'),
+    path('view_profile/<int:teacher_id>/', views.view_profile, name='view_profile'),
+    path('create_teacher/', views.create_teacher, name="create_teacher"),
 ]

@@ -44,6 +44,9 @@ class Team(models.Model):
     def __str__(self):
         return "{} {}".format(self.sport, self.schedule)
 
+    class Meta:
+        verbose_name="Equipo"
+        verbose_name_plural="Equipos"
 
 class Student(models.Model):
     SOF18 = 'SOF18'
@@ -80,3 +83,6 @@ class Student(models.Model):
     def __str__(self):
         return "{} {} {}".format(self.expediente, self.last_name, self.first_name)
     
+    class Meta:
+        verbose_name="Alumno"
+        verbose_name_plural="Alumnos"
