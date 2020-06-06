@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Consultar perfil|{{ profile.user }}
+{% endblock %}
+
+{% block content %}
+    {% if profile is None %}
+        <span>El profesor aún no actualiza su perfil</span>
+    {% else %}
+    <h4>{{profile.user}}</h4>
+        <img src="{{ profile.avatar.url }}" alt="" style="width:120px">
+        <p>
+            {{ profile.desc }}
+        </p>
+    {% endif %}
+{% endblock %}
